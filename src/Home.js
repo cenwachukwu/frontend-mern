@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import img from "./src/drawing-stethoscope-medicine-stethescope.jpg";
-import "./Home.css";
+
 
 class Home extends Component {
     render() {
