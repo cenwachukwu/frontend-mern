@@ -7,7 +7,6 @@ class Home extends Component {
         return (
             <div className="Home">
                 <h1>this is home</h1>
-                <img src="./src/drawing-stethoscope-medicine-stethescope.jpg" alt="" width="100px" />
             </div>
         )
     }
