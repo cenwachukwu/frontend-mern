@@ -319,7 +319,7 @@ class EditProfile extends Component {
         
 
 
-        const Url = (`https://med-directory-cen.herokuapp.com/directory/update/${this.state.id}`);
+        const Url = (`https://med-directory-cen.herokuapp.com/directory/${this.state.id}`);
 
         Axios.put(Url, Profile)
             .then(res => console.log(res.data))
@@ -365,7 +365,7 @@ class EditProfile extends Component {
                 <div className="topform">
                     <h1>Type in your id to edit your profile!</h1>
                     <div>
-                        <input className="topforminput" type="text" value={this.state.searchName} placeholder="Type in your first name" onChange={this.onSearchName} />
+                        <input className="topforminput" type="text" value={this.state.searchName} placeholder="Type in your last name" onChange={this.onSearchName} />
                         <div className="Button-div" onClick={this.onFindProfile}>
                             <p className="Button-div-ptag">Find your profile</p>
                         </div>

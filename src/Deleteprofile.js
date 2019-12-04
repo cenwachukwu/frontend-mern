@@ -22,7 +22,7 @@ class DeleteProfile extends Component {
     onSubmit(evt) {
         evt.preventDefault();
         if (this.state.id){
-            const Url = (`http://localhost:8080/directory/id/${this.state.id}`);
+            const Url = (`https://med-directory-cen.herokuapp.com/directory/${this.state.id}`);
 
             Axios.delete(Url)
             .then(res => console.log(res))
