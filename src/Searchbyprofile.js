@@ -14,7 +14,6 @@ class Profile extends Component {
             title: "",
             gender: "",
             bio: "",
-            image_url: "",
             school: "",
             degree: "",
             license_number: "",
@@ -45,7 +44,6 @@ class Profile extends Component {
         this.onChangeTitle = this.onChangeTitle.bind(this);
         this.onChangeGender = this.onChangeGender.bind(this);
         this.onChangeBio = this.onChangeBio.bind(this);
-        this.onChangeImage_url = this.onChangeImage_url.bind(this);
         this.onChangeLicense_number = this.onChangeLicense_number.bind(this);
         this.onChangeLicense_state = this.onChangeLicense_state.bind(this);
         this.onChangeSpecialties_name = this.onChangeSpecialties_name.bind(this);
@@ -104,11 +102,6 @@ class Profile extends Component {
     onChangeBio(evt) {
         this.setState({
             bio: evt.target.value
-        });
-    }
-    onChangeImage_url(evt) {
-        this.setState({
-            image_url: evt.target.value
         });
     }
     
@@ -201,7 +194,6 @@ class Profile extends Component {
                     title: res.data[0].profile[0].title,
                     gender: res.data[0].profile[0].gender,
                     bio: res.data[0].profile[0].bio,
-                    image_url: res.data[0].profile[0].image_url,
                     license_number: res.data[0].licenses[0].number,
                     license_state: res.data[0].licenses[0].state,
                     specialties_name: res.data[0].specialties[0].name,
@@ -262,9 +254,6 @@ class Profile extends Component {
                                 </div>
                                 <div>
                                     <input type="text" value={this.state.gender} placeholder="M/F/NonBinary" onChange={this.onChangeGender} />
-                                </div>
-                                <div>
-                                    <input type="text" value={this.state.image_url} placeholder="Enter a url for your image" onChange={this.onChangeImage_url} />
                                 </div>
                                 <div>
                                     <input type="text" value={this.state.license_number} placeholder="Enter your license number" onChange={this.onChangeLicense_number} />
