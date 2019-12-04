@@ -64,7 +64,7 @@ class Insurance extends Component {
                     <h1>find doctors profile</h1>
                 </div>
                 <div>
-                    <input type="text" value={query} placeholder="find doctors by insurance uid " onChange={this.onProfileNameChange} />
+                    <input type="text" value={query} placeholder="find doctors by insurance uid eg. cigna-cignahmo" onChange={this.onProfileNameChange} />
                     
                 </div>
                 <div>

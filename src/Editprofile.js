@@ -22,20 +22,7 @@ class EditProfile extends Component {
             license_state: "",
             specialties_name: "",
             description: "",
-            actor: "",
-            practice_name: "",
-            website: "",
-            accepts_new_patients: false,
-            practice_city: "",
-            practice_state: "",
-            practice_street: "",
-            practice_zip: "",
-            practice_phone_number: "",
-            phone_type: "",
-            language_name: "",
-            category_types: "",
-            insurance_uid: "",
-            insurance_name: ""
+            actor: ""
         }
         this.onSearchName = this.onSearchName.bind(this);
         this.onFindProfile = this.onFindProfile.bind(this);
@@ -54,19 +41,6 @@ class EditProfile extends Component {
         this.onChangeSpecialties_name = this.onChangeSpecialties_name.bind(this);
         this.onChangeDescription = this.onChangeDescription.bind(this);
         this.onChangeActor = this.onChangeActor.bind(this);
-        this.onChangePractice_name = this.onChangePractice_name.bind(this);
-        this.onChangeWebsite = this.onChangeWebsite.bind(this)
-        this.onChangeAccepts_new_patients = this.onChangeAccepts_new_patients.bind(this);
-        this.onChangePractice_city = this.onChangePractice_city.bind(this);
-        this.onChangePractice_state = this.onChangePractice_state.bind(this);
-        this.onChangePractice_street = this.onChangePractice_street.bind(this);
-        this.onChangePractice_zip = this.onChangePractice_zip.bind(this);
-        this.onChangePractice_phone_number = this.onChangePractice_phone_number.bind(this);
-        this.onChangePhone_type = this.onChangePhone_type.bind(this);
-        this.onChangeLanguage_name = this.onChangeLanguage_name.bind(this);
-        this.onChangeCategory_types = this.onChangeCategory_types.bind(this);
-        this.onChangeInsurance_uid = this.onChangeInsurance_uid.bind(this);
-        this.onChangeInsurance_name = this.onChangeInsurance_name.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
     }
 
@@ -153,71 +127,6 @@ class EditProfile extends Component {
             actor: evt.target.value
         });
     }
-    onChangePractice_name(evt) {
-        this.setState({
-            practice_name: evt.target.value
-        });
-    }
-    onChangeWebsite(evt) {
-        this.setState({
-            website: evt.target.value
-        });
-    }
-    onChangeAccepts_new_patients(evt) {
-        this.setState({
-            accepts_new_patients: evt.target.value
-        });
-    }
-    onChangePractice_city(evt) {
-        this.setState({
-            practice_city: evt.target.value
-        });
-    }
-    onChangePractice_state(evt) {
-        this.setState({
-            practice_state: evt.target.value
-        });
-    }
-    onChangePractice_street(evt) {
-        this.setState({
-            practice_street: evt.target.value
-        });
-    }
-    onChangePractice_zip(evt) {
-        this.setState({
-            practice_zip: evt.target.value
-        });
-    }
-    onChangePractice_phone_number(evt) {
-        this.setState({
-            practice_phone_number: evt.target.value
-        });
-    }
-    onChangePhone_type(evt) {
-        this.setState({
-            phone_type: evt.target.value
-        });
-    }
-    onChangeLanguage_name(evt) {
-        this.setState({
-            language_name: evt.target.value
-        });
-    }
-    onChangeCategory_types(evt) {
-        this.setState({
-            category_types: evt.target.value
-        });
-    }
-    onChangeInsurance_uid(evt) {
-        this.setState({
-            insurance_uid: evt.target.value
-        });
-    }
-    onChangeInsurance_name(evt) {
-        this.setState({
-            insurance_name: evt.target.value
-        });
-    }
 
     onFindProfile(evt) {
         evt.preventDefault();
@@ -239,23 +148,9 @@ class EditProfile extends Component {
                     license_state: res.data[0].licenses[0].state,
                     specialties_name: res.data[0].specialties[0].name,
                     description: res.data[0].specialties[0].description,
-                    actor: res.data[0].specialties[0].actor,
-                    practice_name: res.data[0].practices[0].name,
-                    website: res.data[0].practices[0].website,
-                    accepts_new_patients: res.data[0].practices[0].accepts_new_patients,
-                    practice_city: res.data[0].practices[0].visit_address[0].city,
-                    practice_state: res.data[0].practices[0].visit_address[0].state,
-                    practice_street: res.data[0].practices[0].visit_address[0].street,
-                    practice_zip: res.data[0].practices[0].visit_address[0].zip,
-                    practice_phone_number: res.data[0].practices[0].phones[0].number,
-                    phone_type: res.data[0].practices[0].phones[0].type,
-                    language_name: res.data[0].practices[0].languages[0].name,
-                    category_types: res.data[0].insurances[0].insurance_plan[0].category,
-                    insurance_uid: res.data[0].insurances[0].insurance_plan[0].uid,
-                    insurance_name: res.data[0].insurances[0].insurance_plan[0].name
+                    actor: res.data[0].specialties[0].actor
                 })
                 console.log(this.state)
-                // console.log(res.data)
             })
             .catch(err => {
                 console.log(err)
@@ -286,31 +181,6 @@ class EditProfile extends Component {
                 name: this.state.specialties_name,
                 description: this.state.description,
                 actor: this.state.actor
-            }],
-            practices: [{
-                name: this.state.practice_name,
-                website: this.state.website,
-                accepts_new_patients: this.state.accepts_new_patients,
-                visit_address: [{
-                    city: this.state.practice_city,
-                    state: this.state.practice_state,
-                    street: this.state.practice_street,
-                    zip: this.state.practice_zip
-                }],
-                phone: [{
-                    number: this.state.practice_phone_number,
-                    type: this.state.phone_type
-                }],
-                languages: [{
-                    name: this.state.language_name
-                }]
-            }],
-            insurances: [{
-                insurance_plan: [{
-                    category: [this.state.category_types]
-                }],
-                uid: this.state.insurance_uid,
-                name: this.state.insurance_name
             }]
 
         }
@@ -340,20 +210,7 @@ class EditProfile extends Component {
             license_state: "",
             specialties_name: "",
             description: "",
-            actor: "",
-            practice_name: "",
-            website: "",
-            accepts_new_patients: false,
-            practice_city: "",
-            practice_state: "",
-            practice_street: "",
-            practice_zip: "",
-            practice_phone_number: "",
-            phone_type: "",
-            language_name: "",
-            category_types: "",
-            insurance_uid: "",
-            insurance_name: ""
+            actor: ""
         })
     }
 
@@ -424,46 +281,7 @@ class EditProfile extends Component {
                                     <input type="text" value={this.state.actor} placeholder="How would you like to be addressed eg. Cardiologist" onChange={this.onChangeActor} />
                                 </div>
                                 <div>
-                                    <input type="text" value={this.state.practice_name} placeholder="Enter the name of your practice" onChange={this.onChangePractice_name} />
-                                </div>
-                                <div>
-                                    <input type="text" value={this.state.website} placeholder="Enter a website url for your practice" onChange={this.onChangeWebsite} />
-                                </div>
-                                <div>
-                                    <input type="text" value={this.state.accepts_new_patients} placeholder="Does your practice accept new patients? true/false" onChange={this.onChangeAccepts_new_patients} />
-                                </div>
-                                <div>
-                                    <input type="text" value={this.state.practice_city} placeholder="Enter the city where you own your practice" onChange={this.onChangePractice_city} />
-                                </div>
-                                <div>
-                                    <input type="text" value={this.state.practice_state} placeholder="Enter the state where you own your practice" onChange={this.onChangePractice_state} />
-                                </div>
-                                <div>
-                                    <input type="text" value={this.state.practice_street} placeholder="Enter a valid Street name for your practice" onChange={this.onChangePractice_street} />
-                                </div>
-                                <div>
-                                    <input type="text" value={this.state.practice_zip} placeholder="Enter a valid zip code for you practice" onChange={this.onChangePractice_zip} />
-                                </div>
-                                <div>
-                                    <input type="text" value={this.state.practice_phone_number} placeholder="Enter a valid phone number for your practice" onChange={this.onChangePractice_phone_number} />
-                                </div>
-                                <div>
-                                    <input type="text" value={this.state.phone_type} placeholder="Land/Cell" onChange={this.onChangePhone_type} />
-                                </div>
-                                <div>
-                                    <input type="text" value={this.state.language_name} placeholder="Enter the languages spoken at your practice eg. English and spanish" onChange={this.onChangeLanguage_name} />
-                                </div>
-                                <div>
-                                    <input type="text" value={this.state.category_types} placeholder="Enter the insurance category accepted at your practice eg. Medical, Vision" onChange={this.onChangeCategory_types} />
-                                </div>
-                                <div>
-                                    <input type="text" value={this.state.insurance_uid} placeholder="Enter a valid insurance uid for your practice" onChange={this.onChangeInsurance_uid} />
-                                </div>
-                                <div>
-                                    <input type="text" value={this.state.insurance_name} placeholder="Enter a valid name for the insurance accepted by your practice" onChange={this.onChangeInsurance_name} />
-                                </div>
-                                <div>
-                                    <input type="submit" placeholder="Create New Profile" />
+                                    <input type="submit" placeholder="Edit Your Profile" />
                                 </div>
                             </div>
                         )
